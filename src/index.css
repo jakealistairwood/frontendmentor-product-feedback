@@ -27,6 +27,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   @apply text-mid-navy;
+  @apply font-semibold;
 }
 
 div {
@@ -38,11 +39,21 @@ p {
   @apply text-paler-navy;
 }
 
+textarea {
+  @apply bg-very-pale-blue;
+  @apply px-6;
+  @apply py-4;
+  @apply text-paler-navy;
+}
+
 .btn {
   @apply rounded-xl;
   display: flex;
   justify-content: center;
   align-items: center;
+  @apply text-sm;
+  @apply font-bold;
+  min-height: 44px;
 }
 
 .btn-primary,

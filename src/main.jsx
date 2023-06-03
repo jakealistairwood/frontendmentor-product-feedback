@@ -5,16 +5,21 @@ import Root from './routes/root.jsx'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import SuggestionIndex from './pages/SuggetionIndex/SuggestionIndex.jsx'
+import AddFeedback from './pages/AddFeedback/AddFeedback.jsx'
+import { FeedbackContextProvider } from './context/FeedbackContext.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/suggestions" element={<Root />}>
     <Route index element={<App />} />
     <Route path="/suggestions/:id" element={<SuggestionIndex />} />
+    <Route path="/suggestions/add-feedback" element={<AddFeedback />} />
   </Route>
 ))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FeedbackContextProvider>
+      <RouterProvider router={router} />
+    </FeedbackContextProvider>
   </React.StrictMode>,
 )

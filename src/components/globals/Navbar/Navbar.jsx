@@ -9,7 +9,7 @@ const Navbar = ({ noOfSuggestions }) => {
                 <p className="text-white">{noOfSuggestions} Suggestions</p>
             </div>
         </div>
-        <Button label={"Add Feedback"} classNames={"btn-primary"} isLink={true} />
+        <Button label={"Add Feedback"} href={"/suggestions/add-feedback"} classNames={"btn-primary"} isLink={true} />
     </nav>
 }
 

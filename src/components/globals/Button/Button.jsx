@@ -1,11 +1,13 @@
-const Button = ({ classNames, isLink, label, icon, triggerFunctionality }) => {
+import { Link } from "react-router-dom";
+
+const Button = ({ classNames, isLink, href, label, icon, triggerFunctionality }) => {
     if(isLink) {
-        return <a className={`btn ${classNames}`} href="#">
+        return <Link to={href} className={`btn ${classNames}`}>
             <div className="flex justify-between items-center gap-2">
                 {icon && <>{icon}</>}
                 <span>{label}</span>
             </div>
-        </a>
+        </Link>
     } else {
         return <button className={`btn ${classNames}`} onClick={triggerFunctionality}>
             <div className="flex justify-between items-center gap-2">

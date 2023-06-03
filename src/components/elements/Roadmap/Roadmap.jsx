@@ -8,8 +8,8 @@ const Roadmap = ({ statuses }) => {
             {statuses.map(status => {
                 return <li className="flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <div className={`w-[8px] h-[8px] rounded-full indicator-${status.updateLabel}`}></div>
-                        <p className="text-paler-navy">{status.updateLabel}</p>
+                        <div className={`w-[8px] h-[8px] rounded-full indicator-${status.label}`}></div>
+                        <p className="text-paler-navy">{status.label}</p>
                     </div>
                     <p className="font-bold text-mid-navy">{status.numberOfUpdates}</p>
                 </li>

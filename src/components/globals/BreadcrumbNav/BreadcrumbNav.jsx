@@ -5,7 +5,7 @@ import { ReactComponent as ArrowLeft } from "../../../assets/images/shared/icon-
 const BreadcrumbNav = () => {
     let navigate = useNavigate();
 
-    return <nav className="breadcrumb flex justify-between items-center">
+    return <nav className="breadcrumb flex justify-between items-center mb-6">
         <Button label={"Go Back"} icon={<ArrowLeft />} triggerFunctionality={() => navigate(-1)} />
         <Button label={"Edit Feedback"} classNames={"btn-secondary"} triggerFunctionality={null}  />
     </nav>

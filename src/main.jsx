@@ -4,10 +4,12 @@ import App from './App.jsx'
 import Root from './routes/root.jsx'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import SuggestionIndex from './pages/SuggetionIndex/SuggestionIndex.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Root />}>
+  <Route path="/suggestions" element={<Root />}>
     <Route index element={<App />} />
+    <Route path="/suggestions/:id" element={<SuggestionIndex />} />
   </Route>
 ))
 

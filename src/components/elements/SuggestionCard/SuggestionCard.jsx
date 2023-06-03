@@ -1,12 +1,13 @@
 import { ReactComponent as CommentsIcon } from "../../../assets/images/shared/icon-comments.svg"
 import { ReactComponent as ArrowUpIcon } from "../../../assets/images/shared/icon-arrow-up.svg"
 import Button from "../../globals/Button/Button";
+import { Link } from "react-router-dom";
 
 const SuggestionCard = ({ suggestion }) => {
 
-    const { title, description, comments } = suggestion;
+    const { title, description, comments, id } = suggestion;
 
-    return <div className="suggestion-card bg-white px-8 py-7 rounded-xl flex justify-between items-center">
+    return <Link to={`/suggestions/${id}`} className="suggestion-card bg-white px-8 py-7 rounded-xl flex justify-between items-center">
         <div className="flex gap-10">
             <Button isLink={false} label={suggestion.upvotes} classNames={"btn-upvote"} icon={<ArrowUpIcon />} />
             <div className="suggestion-card__body">
@@ -20,7 +21,7 @@ const SuggestionCard = ({ suggestion }) => {
                 <span>{comments.length}</span>
             ): <span>0</span>}
         </div>
-    </div>
+    </Link>
 }
 
 export default SuggestionCard

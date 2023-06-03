@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
   @apply text-mid-navy;
 }
 
+div {
+  @apply rounded-xl;
+}
+
 p {
   @apply text-base;
   @apply text-paler-navy;
@@ -49,16 +53,20 @@ p {
 
 .btn-primary {
   @apply bg-primary-purple;
+  @apply text-white;
 }
 
-.btn-secondary,
+.btn-secondary {
+  @apply bg-secondary-purple;
+  @apply text-white;
+}
+
 .btn-filter,
 .btn-upvote {
   @apply bg-pale-blue;
   @apply font-semibold;
 }
 
-.btn-secondary, 
 .btn-filter {
   @apply text-secondary-purple;
 }

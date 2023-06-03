@@ -6,7 +6,7 @@ const Navbar = ({ noOfSuggestions }) => {
         <div className="">
             <div className="flex items-center gap-2">
                 <SuggestionsIcon />
-                <p>{noOfSuggestions} Suggestions</p>
+                <p className="text-white">{noOfSuggestions} Suggestions</p>
             </div>
         </div>
         <Button label={"Add Feedback"} classNames={"btn-primary"} isLink={true} />

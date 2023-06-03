@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Jost, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    @apply bg-pale-blue;
+  }
+}
+
+body {
+  min-height: 100vh;
+}
+
+.portal-wrapper {
+  max-width: 1110px;
+  width: 100%;
+  height: 100%;
+  margin-inline: auto;
+}
+
+.feedback-board {
+  height: 137px;
+  background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%) 
+}
+
+.btn {
+  @apply rounded-xl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  @apply py-1.5;
+  @apply px-4;
+}
+
+.btn-primary {
+  @apply bg-primary-purple;
+}
+
+.btn-secondary,
+.btn-filter,
+.btn-upvote {
+  @apply bg-pale-blue;
+}
+
+.btn-upvote {
+  @apply py-2.5;
+  @apply px-2;
+}
+
+.btn-filter {
+  @apply py-1.5;
+  @apply px-4;
+}
+
+.btn-filter--active {
+  @apply bg-secondary-purple;
+}

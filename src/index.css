@@ -25,6 +25,15 @@ body {
   background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%) 
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @apply text-mid-navy;
+}
+
+p {
+  @apply text-base;
+  @apply text-paler-navy;
+}
+
 .btn {
   @apply rounded-xl;
   display: flex;
@@ -46,11 +55,23 @@ body {
 .btn-filter,
 .btn-upvote {
   @apply bg-pale-blue;
+  @apply font-semibold;
+}
+
+.btn-secondary, 
+.btn-filter {
+  @apply text-secondary-purple;
 }
 
 .btn-upvote {
   @apply py-2.5;
   @apply px-2;
+  min-width: 40px;
+}
+
+.btn-upvote div {
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-filter {
@@ -60,4 +81,17 @@ body {
 
 .btn-filter--active {
   @apply bg-secondary-purple;
+  @apply text-white;
+}
+
+.indicator-planned {
+  @apply bg-sunset-orange;
+}
+
+.indicator-in-progress {
+  @apply bg-primary-purple;
+}
+
+.indicator-live {
+  @apply bg-light-blue;
 }

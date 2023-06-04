@@ -50,7 +50,7 @@ const SuggestionIndex = () => {
         setCurrentSuggestion(suggestion)
     }, [currentSuggestion.comments]);
 
-    return <main className="max-w-[730px] w-full mx-auto py-20">
+    return <main className="max-w-[730px] w-10/12 mx-auto py-20">
         <section>
             <BreadcrumbNav hasAdditionalButton={true} />
             <SuggestionCard suggestion={suggestion} />

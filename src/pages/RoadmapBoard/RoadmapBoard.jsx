@@ -3,6 +3,7 @@ import FeedbackContext from "../../context/FeedbackContext"
 import Navbar from "../../components/globals/Navbar/Navbar";
 import uuid from "react-uuid"
 import Button from "../../components/globals/Button/Button";
+import RoadmapCard from "../../components/elements/RoadmapCard/RoadmapCard";
 import { ReactComponent as ArrowUpIcon } from "../../assets/images/shared/icon-arrow-up.svg"
 import { ReactComponent as CommentsIcon } from "../../assets/images/shared/icon-comments.svg"
 
@@ -29,7 +30,7 @@ const RoadmapBoard = () => {
     }, []);
 
     return <main className="max-w-[1110px] mx-auto pt-16 pb-44">
-        <Navbar />
+        <Navbar hasBreadcrumb={true} titleOptions={{ title: "Roadmap", icon: "" }} />
         <section className="roadmap-board grid grid-cols-3 mt-12 gap-8">
             {roadmaps.map(status => {
                 return <div className="board" key={uuid()}>
@@ -38,25 +39,7 @@ const RoadmapBoard = () => {
                     </header>
                     <ul className="roadmap-suggestions flex flex-col gap-y-6">
                         {status.relatedSuggestions.map(suggestion => {
-                            return <li className={`suggestion suggestion--${suggestion.status} rounded-xl`}>
-                                <div className="bg-white p-8 rounded-t-none">
-                                    <div className="flex items-center gap-4 mb-2">
-                                        <div className={`w-[8px] h-[8px] rounded-full indicator-${status.label}`}></div>
-                                        <p className="text-paler-navy">{status.label}</p>
-                                    </div>
-                                    <h4 className="mb-2 text-lg">{suggestion.title}</h4>
-                                    <p>{suggestion.description}</p>
-                                    <footer className="flex justify-between items-center mt-4">
-                                        <Button classNames={"btn-upvote"} label={suggestion.upvotes} icon={<ArrowUpIcon />} />
-                                        <div className="suggestion-card__comments-indicator flex items-center gap-2">
-                                            <CommentsIcon />
-                                            {/* {suggestion.comments ? (
-                                                <span>{suggestions.comments.length}</span>
-                                            ): <span>0</span>} */}
-                                        </div>
-                                    </footer>
-                                </div>
-                            </li>
+                            return <RoadmapCard status={status} suggestion={suggestion} />
                         })}
                     </ul>
                 </div>

@@ -4,7 +4,7 @@ const Roadmap = ({ statuses }) => {
     return <div className="roadmap bg-white rounded-xl p-6 flex flex-col gap-6">
         <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold">Roadmap</h3>
-            <Link to="/roadmap" className="text-secondary-purple font-semibold text-sm">View all</Link>
+            <Link to="/roadmap" className="text-secondary-purple font-semibold text-sm">View</Link>
         </div>
         <ul className="flex flex-col gap-2">
             {statuses.map(status => {

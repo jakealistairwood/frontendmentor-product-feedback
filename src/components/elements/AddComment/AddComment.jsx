@@ -1,28 +1,29 @@
 import { useState, useEffect, useRef } from "react"
 import Button from "../../globals/Button/Button"
 
-const AddComment = ({ currentSuggestion, setCurrentSuggestion }) => {
+const AddComment = ({ currentSuggestion, setCurrentSuggestion, comment, setComment, postComment }) => {
     const [ maxCharLength, setMaxCharLength ] = useState(250);
     const [ charsRemaining, setCharsRemaining ] = useState();
 
     let commentInput = useRef();
 
-    const [ comment, setComment ] = useState({
-        content: "",
-        id: currentSuggestion.comments.length + 1,
-        user: {
-            image: "/images/image-suzanne.png",
-            name: "Suzanne Smith",
-            username: "suzie_smith1234"
-        }
-    })
+    // const [ comment, setComment ] = useState({
+    //     content: "",
+    //     id: "",
+    //     user: {
+    //         image: "/images/image-suzanne.png",
+    //         name: "Suzanne Smith",
+    //         username: "suzie_smith1234"
+    //     }
+    // })
     
     const checkMaxCharLength = (e) => {
         if(charsRemaining <= 0) false;
         setCharsRemaining(maxCharLength - e.target.value.length)
         setComment({
             ...comment,
-            content: e.target.value
+            id: currentSuggestion.comments.length + 1,
+            content: e.target.value,
         })
     }
     
@@ -33,12 +34,13 @@ const AddComment = ({ currentSuggestion, setCurrentSuggestion }) => {
     }, []);
 
     // const postComment = () => {
-    //     setCurrentSuggestion(...currentSuggestion, {
-    //         comments: comments.push(comment)
+    //     setSuggestion({
+    //         ...suggestion,
+    //         comments: suggestion.comments.push(comment)
     //     })
     // }
 
-    return <form className="add-comment bg-white rounded-xl px-8 py-6 mt-6">
+    return <form className="add-comment bg-white rounded-xl px-8 py-6 mt-6" onSubmit={postComment}>
         <label className="mb-6" htmlFor="addComment">
             <h3>Add Comment</h3>
         </label>

@@ -9,11 +9,38 @@ import AddComment from "../../components/elements/AddComment/AddComment"
 const SuggestionIndex = () => {
     let { id } = useParams();
     const [ currentSuggestion, setCurrentSuggestion ] = useState({});
+    const [ comment, setComment ] = useState({
+        content: "",
+        id: "",
+        user: {
+            image: "/images/image-suzanne.png",
+            name: "Suzanne Smith",
+            username: "suzie_smith1234"
+        }
+    })
 
     const { value } = useContext(FeedbackContext);
     let { suggestions, categories, roadmapData, setSuggestions } = value;
 
     let suggestion = suggestions.filter(item => item.id == id)[0];
+
+
+    const postComment = (e) => {
+        e.preventDefault(); 
+        setCurrentSuggestion({
+            ...currentSuggestion,
+            comments: currentSuggestion.comments.push(comment)
+        })
+        setComment({
+            content: "",
+            id: "",
+            user: {
+                image: "/images/image-suzanne.png",
+                name: "Suzanne Smith",
+                username: "suzie_smith1234"
+            }
+        })
+    }
     
     // useEffect(() => {
     //     setSuggestion(suggestions.filter(item => item.id == id)[0]);
@@ -21,14 +48,20 @@ const SuggestionIndex = () => {
 
     useEffect(() => {
         setCurrentSuggestion(suggestion)
-    }, []);
+    }, [currentSuggestion.comments]);
 
     return <main className="max-w-[730px] w-full mx-auto py-20">
         <section>
             <BreadcrumbNav />
             <SuggestionCard suggestion={suggestion} />
             <CommentsBlock comments={suggestion.comments} />
-            <AddComment currentSuggestion={currentSuggestion} setCurrentSuggestion={setCurrentSuggestion} />
+            <AddComment 
+                comment={comment}
+                setComment={setComment}
+                postComment={postComment}
+                currentSuggestion={currentSuggestion} 
+                setCurrentSuggestion={setCurrentSuggestion} 
+            />
         </section>
     </main>
 }

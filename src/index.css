@@ -39,11 +39,16 @@ p {
   @apply text-paler-navy;
 }
 
-textarea {
+textarea,
+input[type="text"] {
   @apply bg-very-pale-blue;
+  @apply text-paler-navy;
+  @apply w-full;
+}
+
+textarea {
   @apply px-6;
   @apply py-4;
-  @apply text-paler-navy;
 }
 
 .btn {
@@ -57,7 +62,8 @@ textarea {
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-tertiary {
   @apply py-1.5;
   @apply px-4;
 }
@@ -69,6 +75,11 @@ textarea {
 
 .btn-secondary {
   @apply bg-secondary-purple;
+  @apply text-white;
+}
+
+.btn-tertiary {
+  @apply bg-deep-navy;
   @apply text-white;
 }
 
@@ -113,4 +124,16 @@ textarea {
 
 .indicator-live {
   @apply bg-light-blue;
+}
+
+.form-icon {
+  @apply rounded-full;
+  top: 0;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }

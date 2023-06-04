@@ -8,7 +8,7 @@ import AddComment from "../../components/elements/AddComment/AddComment"
 
 const SuggestionIndex = () => {
     let { id } = useParams();
-    // const [ suggestion, setSuggestion ] = useState({});
+    const [ currentSuggestion, setCurrentSuggestion ] = useState({});
 
     const { value } = useContext(FeedbackContext);
     let { suggestions, categories, roadmapData, setSuggestions } = value;
@@ -19,12 +19,16 @@ const SuggestionIndex = () => {
     //     setSuggestion(suggestions.filter(item => item.id == id)[0]);
     // }, []);
 
+    useEffect(() => {
+        setCurrentSuggestion(suggestion)
+    }, []);
+
     return <main className="max-w-[730px] w-full mx-auto py-20">
         <section>
             <BreadcrumbNav />
             <SuggestionCard suggestion={suggestion} />
             <CommentsBlock comments={suggestion.comments} />
-            <AddComment setSuggestions={setSuggestions} />
+            <AddComment currentSuggestion={currentSuggestion} setCurrentSuggestion={setCurrentSuggestion} />
         </section>
     </main>
 }

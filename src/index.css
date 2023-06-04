@@ -137,3 +137,18 @@ textarea {
   align-items: center;
   background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }
+
+.suggestion--planned {
+  @apply bg-sunset-orange;
+  @apply pt-2;
+}
+
+.suggestion--in-progress {
+  @apply bg-primary-purple;
+  @apply pt-2;
+}
+
+.suggestion--live {
+  @apply bg-light-blue;
+  @apply pt-2;
+}

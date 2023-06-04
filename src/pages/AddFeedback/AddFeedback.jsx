@@ -19,7 +19,7 @@ const AddFeedback = () => {
 
 
     return <main className="max-w-[540px] w-full mx-auto py-20">
-        <BreadcrumbNav />
+        <BreadcrumbNav hasAdditionalButton={false} />
         <FeedbackForm feedbackData={newFeedback} title={"Create New Feedback"} />
     </main>
 }

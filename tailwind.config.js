@@ -10,8 +10,12 @@ export default {
     colors: {
       "primary-purple": "hsl(282, 83%, 52%)",
       "secondary-purple": "hsl(230, 76%, 59%)",
+      "bright-purple": "hsla(282, 90%, 66%, 1)",
+      "pale-purple": "hsla(230, 100%, 91%, 1)",
+      "lilac-blue": "hsla(230, 91%, 73%, 1)",
       "deep-navy": "hsl(230, 31%, 31%)",
       "mid-navy": "hsl(231, 33%, 34%)",
+      "pale-navy": "hsla(231, 26%, 52%, 1)",
       "paler-navy": "hsl(224, 20%, 49%)",
       "very-pale-blue": "hsl(230, 60%, 98%)",
       "pale-blue": "hsl(231, 100%, 97%)",

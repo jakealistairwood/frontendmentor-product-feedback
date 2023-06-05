@@ -46,10 +46,15 @@ p {
 }
 
 textarea,
-input[type="text"] {
+input[type="text"],
+.select-input {
   @apply bg-very-pale-blue;
   @apply text-paler-navy;
   @apply w-full;
+}
+
+input[type="submit"] {
+  cursor: pointer;
 }
 
 textarea {
@@ -65,6 +70,7 @@ textarea {
   @apply text-sm;
   @apply font-bold;
   min-height: 44px;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-primary,
@@ -79,6 +85,10 @@ textarea {
   @apply text-white;
 }
 
+.btn-primary:hover {
+  @apply bg-bright-purple;
+}
+
 .btn-secondary {
   @apply bg-secondary-purple;
   @apply text-white;
@@ -89,10 +99,19 @@ textarea {
   @apply text-white;
 }
 
+.btn-tertiary:hover {
+  @apply bg-pale-navy;
+}
+
 .btn-filter,
 .btn-upvote {
   @apply bg-pale-blue;
   @apply font-semibold;
+}
+
+.btn-filter:hover,
+.btn-upvote:hover {
+  @apply bg-pale-purple;
 }
 
 .btn-filter {
@@ -127,6 +146,10 @@ textarea {
 .btn-filter--active {
   @apply bg-secondary-purple;
   @apply text-white;
+}
+
+.btn-filter--active:hover {
+  @apply bg-secondary-purple;
 }
 
 .indicator-planned {
@@ -173,4 +196,23 @@ textarea {
 
 .roadmap-card--live {
   @apply bg-light-blue;
+}
+
+.select-dropdown {
+  box-shadow: 0px 10px 40px -7px #373F6859;
+  @apply top-16;
+}
+
+.select-dropdown li:not(:last-child) {
+  border-bottom: 1px solid rgba(58, 67, 116, 0.15)
+}
+
+.dropdown-icon {
+  transform: rotate(0deg);
+  transform-origin: 50% 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-icon--active {
+  transform: rotate(180deg);
 }

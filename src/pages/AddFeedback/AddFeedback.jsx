@@ -5,22 +5,23 @@ import FeedbackContext from "../../context/FeedbackContext";
 
 const AddFeedback = () => {
     const { value } = useContext(FeedbackContext);
-    let { suggestions, setSuggestions} = value;
+    let { suggestions, setSuggestions, categories } = value;
+
+    console.log(categories);
 
     const [ newFeedback, setNewFeedback ] = useState({
         id: suggestions.length + 1,
         title: "",
         category: "",
         upvotes: 0,
-        status: "",
+        status: "suggestion",
         description: "",
         comments: []
     });
 
-
     return <main className="max-w-[540px] w-full mx-auto py-20">
         <BreadcrumbNav hasAdditionalButton={false} />
-        <FeedbackForm feedbackData={newFeedback} title={"Create New Feedback"} />
+        <FeedbackForm suggestions={suggestions} feedback={newFeedback} setFeedback={setNewFeedback} title={"Create New Feedback"} categories={categories} />
     </main>
 }
 

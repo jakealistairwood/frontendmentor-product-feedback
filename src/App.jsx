@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <main className="portal-wrapper relative py-20">
+    <main className="portal-wrapper relative md:py-20">
       <Dashboard />
     </main>
   )

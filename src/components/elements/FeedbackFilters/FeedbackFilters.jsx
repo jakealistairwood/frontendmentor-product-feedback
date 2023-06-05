@@ -30,7 +30,7 @@ const FeedbackFilters = ({ filters, originalFilters, originalSuggestions }) => {
         setCurrentFilter("all")
     }, [handleFilter]);
 
-    return <ul className="feedback-filters rounded-xl p-6 bg-white flex flex-wrap gap-y-3.5 gap-x-2">
+    return <ul className={`feedback-filters rounded-xl p-6 bg-white flex flex-wrap gap-y-3.5 gap-x-2`}>
         <li className="">
             <Button 
                 label={"All"} 

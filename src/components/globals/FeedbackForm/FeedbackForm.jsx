@@ -40,7 +40,7 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, t
                     className="min-h-[48px] py-3.5 px-6 mt-4" 
                     id="feedbackTitle" 
                     type="text" 
-                    value={toEdit ? feedback.title : ""}
+                    value={toEdit && feedback.title}
                     onChange={(e) => setFeedback({
                         ...feedback,
                         title: e.target.value,
@@ -84,7 +84,7 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, t
                     className="min-h-[96px] mt-4" 
                     name="" 
                     id="feedbackDetail" 
-                    value={toEdit ? feedback.description : ""}
+                    value={toEdit && feedback.description}
                     onChange={(e) => setFeedback({ 
                         ...feedback, 
                         description: e.target.value 

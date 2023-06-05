@@ -13,10 +13,15 @@ import { ReactComponent as SuggestionsIcon } from "../../assets/images/suggestio
 const Dashboard = () => {
 
     const { value } = useContext(FeedbackContext);
-    let { suggestions, categories, roadmapData } = value;
+    let { suggestions, categories, roadmapData, filterCategories, originalSuggestions } = value;
     
     return <section className="dashboard flex flex-col lg:flex-row gap-8">
-        <Sidebar suggestionCategories={categories} statuses={roadmapData} />
+        <Sidebar 
+            originalSuggestions={originalSuggestions}
+            suggestionCategories={categories} 
+            filterCategories={filterCategories} 
+            statuses={roadmapData} 
+        />
         <main className="grow flex flex-col gap-5">
             <Navbar noOfSuggestions={suggestions.length} titleOptions={{ title: `${suggestions.length} Suggestions`, icon: <SuggestionsIcon /> }} />
             {suggestions.length ? suggestions.map(suggestion => {

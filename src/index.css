@@ -85,7 +85,8 @@ textarea {
   @apply text-white;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
   @apply bg-bright-purple;
 }
 
@@ -94,12 +95,18 @@ textarea {
   @apply text-white;
 }
 
+.btn-secondary:hover
+.btn-secondary:focus {
+  @apply bg-lilac-blue;
+}
+
 .btn-tertiary {
   @apply bg-deep-navy;
   @apply text-white;
 }
 
-.btn-tertiary:hover {
+.btn-tertiary:hover,
+.btn-tertiary:focus {
   @apply bg-pale-navy;
 }
 
@@ -110,7 +117,9 @@ textarea {
 }
 
 .btn-filter:hover,
-.btn-upvote:hover {
+.btn-filter:focus,
+.btn-upvote:hover,
+.btn-upvote:focus {
   @apply bg-pale-purple;
 }
 
@@ -144,7 +153,7 @@ textarea {
 }
 
 .btn-filter--active {
-  @apply bg-secondary-purple;
+  @apply !bg-secondary-purple;
   @apply text-white;
 }
 

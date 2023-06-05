@@ -41,6 +41,10 @@ const SuggestionIndex = () => {
             }
         })
     }
+
+    let editFeedbackLink = `/suggestions/${id}/edit-feedback`;
+
+    console.log(editFeedbackLink);
     
     // useEffect(() => {
     //     setSuggestion(suggestions.filter(item => item.id == id)[0]);
@@ -52,7 +56,7 @@ const SuggestionIndex = () => {
 
     return <main className="max-w-[730px] w-10/12 mx-auto py-20">
         <section>
-            <BreadcrumbNav hasAdditionalButton={true} />
+            <BreadcrumbNav hasAdditionalButton={true} href={editFeedbackLink} isLink={true} />
             <SuggestionCard suggestion={suggestion} />
             <CommentsBlock comments={suggestion.comments} />
             <AddComment 

@@ -4,35 +4,28 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 import { ReactComponent as ArrowDownIcon } from "../../../assets/images/shared/icon-arrow-down.svg";
 
-const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories }) => {
+const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, toEdit, defaultCategory, setDefaultCategory, submitFeedback }) => {
     let navigate = useNavigate();
     
-    const [ defaultCategory, setDefaultCategory ] = useState("feature");
+    // const [ defaultCategory, setDefaultCategory ] = useState("feature");
     const [ categoryDropdownOpen, setCategoryDropdownOpen ] = useState(false);
 
-    const submitNewFeedback = (e) => {
-        e.preventDefault();
-        suggestions.push(feedback)
-        console.log(suggestions)
-        setFeedback({
-            id: suggestions.length + 1,
-            title: "",
-            category: "",
-            upvotes: 0,
-            status: "suggestion",
-            description: "",
-            comments: []
-        })
-    }
+    // const submitNewFeedback = (e) => {
+    //     e.preventDefault();
+    //     suggestions.push(feedback)
+    //     console.log(suggestions)
+    //     setFeedback({
+    //         id: suggestions.length + 1,
+    //         title: "",
+    //         category: "",
+    //         upvotes: 0,
+    //         status: "suggestion",
+    //         description: "",
+    //         comments: []
+    //     })
+    // }
 
-    useEffect(() => {
-        setFeedback({
-            ...feedback,
-            category: defaultCategory
-        })
-    }, []);
-
-    return <form className="pt-14 pb-10 px-10 bg-white rounded-xl relative mt-16" onSubmit={submitNewFeedback}>
+    return <form className="pt-14 pb-10 px-10 bg-white rounded-xl relative mt-16" onSubmit={submitFeedback}>
         <div className="form-icon absolute left-10">
             <PlusIcon />
         </div>
@@ -43,10 +36,16 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories })
                     <h2>Feedback Title</h2>
                     <p>Add a short, descriptive headline</p>
                 </label>
-                <input className="min-h-[48px] py-3.5 px-6 mt-4" id="feedbackTitle" type="text" onChange={(e) => setFeedback({
-                    ...feedback,
-                    title: e.target.value
-                })} />
+                <input 
+                    className="min-h-[48px] py-3.5 px-6 mt-4" 
+                    id="feedbackTitle" 
+                    type="text" 
+                    value={toEdit ? feedback.title : ""}
+                    onChange={(e) => setFeedback({
+                        ...feedback,
+                        title: e.target.value,
+                    })}
+                />
             </div>
             <div className="form-control">
                 <label htmlFor="feedbackCategory">
@@ -81,10 +80,16 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories })
                     <h2>Feedback Detail</h2>
                     <p>Include any specific comments on what should be improved, added etc.</p>
                 </label>
-                <textarea className="min-h-[96px] mt-4" name="" id="feedbackDetail" onChange={(e) => setFeedback({ 
-                    ...feedback, 
-                    description: e.target.value 
-                })}></textarea>
+                <textarea 
+                    className="min-h-[96px] mt-4" 
+                    name="" 
+                    id="feedbackDetail" 
+                    value={toEdit ? feedback.description : ""}
+                    onChange={(e) => setFeedback({ 
+                        ...feedback, 
+                        description: e.target.value 
+                    })}
+                ></textarea>
             </div>
         </div>
         <footer className="flex justify-end items-center mt-8 gap-4">

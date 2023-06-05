@@ -8,6 +8,9 @@ export const FeedbackContextProvider = ({ children }) => {
 
     const [ suggestions, setSuggestions ] = useState([]);
 
+    let originalSuggestions = appData.productRequests;
+    let filterCategories = getCategories(appData.productRequests);
+
     let categories = getCategories(suggestions);
     let statusUpdates = getArrayProperty(suggestions, "status");
 
@@ -35,7 +38,9 @@ export const FeedbackContextProvider = ({ children }) => {
 
     const value = {
         suggestions,
+        originalSuggestions,
         setSuggestions,
+        filterCategories,
         categories,
         roadmapData
     };

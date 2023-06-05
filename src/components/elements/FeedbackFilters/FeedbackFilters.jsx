@@ -3,7 +3,7 @@ import FeedbackContext from "../../../context/FeedbackContext"
 import uuid from "react-uuid"
 import Button from "../../globals/Button/Button"
 
-const FeedbackFilters = ({ filters }) => {
+const FeedbackFilters = ({ filters, originalFilters, originalSuggestions }) => {
     let { value } = useContext(FeedbackContext);
     let { suggestions, setSuggestions } = value;
 
@@ -11,19 +11,24 @@ const FeedbackFilters = ({ filters }) => {
 
     const handleFilter = (label) => {
         setCurrentFilter(label)
+        setSuggestions(originalSuggestions)
         if(label == "all") {
-            setSuggestions(suggestions)
+            console.log(suggestions);
+            return
         } else {
+            console.log("button clicked");
             let filterdSuggestions = suggestions.filter(suggestion => suggestion.category == label)
             console.log(filterdSuggestions)
             // setSuggestions(...suggestions.filter(suggestion => suggestion.category == label))
             // setSuggestions([])
+            setSuggestions([...filterdSuggestions])
         }
     }
 
-    // useEffect(() => {
-    //     setCurrentFilter("all")
-    // }, [currentFilter]);
+    useEffect(() => {
+        console.log("useEffect ran")
+        setCurrentFilter("all")
+    }, [handleFilter]);
 
     return <ul className="feedback-filters rounded-xl p-6 bg-white flex flex-wrap gap-y-3.5 gap-x-2">
         <li className="">
@@ -34,7 +39,7 @@ const FeedbackFilters = ({ filters }) => {
                 triggerFunctionality={() => handleFilter("all")}
             />
         </li>
-        {filters.map(filter => {
+        {originalFilters.map(filter => {
             return <li key={uuid()} className="">
                 <Button 
                     label={filter} 

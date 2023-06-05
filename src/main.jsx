@@ -8,13 +8,17 @@ import SuggestionIndex from './pages/SuggetionIndex/SuggestionIndex.jsx'
 import AddFeedback from './pages/AddFeedback/AddFeedback.jsx'
 import RoadmapBoard from './pages/RoadmapBoard/RoadmapBoard.jsx'
 import { FeedbackContextProvider } from './context/FeedbackContext.jsx'
+import EditFeedback from './pages/EditFeedback/EditFeedback.jsx'
+import { Navigate } from 'react-router-dom'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <>
-    <Route path="/suggestions" element={<Root />}>
-      <Route index element={<App />} />
+    <Route path="/" element={<Root />}>
+      <Route index element={<Navigate to="/suggestions" replace />} />
+      <Route path="/suggestions" element={<App />} />
       <Route path="/suggestions/:id" element={<SuggestionIndex />} />
       <Route path="/suggestions/add-feedback" element={<AddFeedback />} />
+      <Route path="/suggestions/:id/edit-feedback" element={<EditFeedback />} />
     </Route>
     <Route path="/roadmap" element={<RoadmapBoard />}></Route>
   </>

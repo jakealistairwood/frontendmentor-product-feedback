@@ -75,7 +75,8 @@ textarea {
 
 .btn-primary,
 .btn-secondary,
-.btn-tertiary {
+.btn-tertiary,
+.btn-danger {
   @apply py-1.5;
   @apply px-4;
 }
@@ -108,6 +109,16 @@ textarea {
 .btn-tertiary:hover,
 .btn-tertiary:focus {
   @apply bg-pale-navy;
+}
+
+.btn-danger {
+  @apply bg-danger-red;
+  @apply text-white;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  @apply bg-pale-red;
 }
 
 .btn-filter,

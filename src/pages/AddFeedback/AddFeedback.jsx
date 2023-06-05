@@ -42,7 +42,7 @@ const AddFeedback = () => {
 
 
 
-    return <main className="max-w-[540px] w-full mx-auto py-20">
+    return <main className="max-w-[540px] w-10/12 mx-auto py-20">
         <BreadcrumbNav hasAdditionalButton={false} />
         <FeedbackForm 
             suggestions={suggestions} 
@@ -53,6 +53,7 @@ const AddFeedback = () => {
             defaultCategory={defaultCategory}
             setDefaultCategory={setDefaultCategory} 
             submitFeedback={submitNewFeedback}
+            toEdit={false}
         />
     </main>
 }

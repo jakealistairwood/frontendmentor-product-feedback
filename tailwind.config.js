@@ -20,6 +20,8 @@ export default {
       "very-pale-blue": "hsl(230, 60%, 98%)",
       "pale-blue": "hsl(231, 100%, 97%)",
       "sunset-orange": "hsl(14, 83%, 74%)",
+      "danger-red": "hsla(0, 67%, 53%, 1)",
+      "pale-red": "hsla(0, 69%, 72%, 1)",
       "light-blue": "hsl(204, 94%, 68%)",
       "white": "hsl(255, 100%, 100%)"
     },

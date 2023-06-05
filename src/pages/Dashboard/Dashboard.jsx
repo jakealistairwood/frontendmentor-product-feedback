@@ -22,7 +22,7 @@ const Dashboard = () => {
             filterCategories={filterCategories} 
             statuses={roadmapData} 
         />
-        <main className="grow flex flex-col gap-5">
+        <main className="grow flex flex-col gap-5 pt-32 sm:pt-0">
             <Navbar noOfSuggestions={suggestions.length} titleOptions={{ title: `${suggestions.length} Suggestions`, icon: <SuggestionsIcon /> }} />
             {suggestions.length ? suggestions.map(suggestion => {
                 return <SuggestionCard key={uuid()} suggestion={suggestion} />

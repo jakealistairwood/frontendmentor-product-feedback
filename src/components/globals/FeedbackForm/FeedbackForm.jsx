@@ -92,9 +92,12 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, t
                 ></textarea>
             </div>
         </div>
-        <footer className="flex justify-end items-center mt-8 gap-4">
-            <Button classNames={"btn-tertiary"} label={"Cancel"} triggerFunctionality={() => navigate(-1)} />
-            <input type="submit" className="btn btn-primary" value="Add Feedback" />
+        <footer className={`flex flex-col sm:flex-row ${toEdit ? "justify-between" : "justify-end"} items-center mt-8 gap-4`}>
+            {toEdit && <Button classNames={"btn-danger w-full sm:w-fit"} label={"Delete"} />}
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-fit">
+                <Button classNames={"btn-tertiary w-full sm:w-fit"} label={"Cancel"} triggerFunctionality={() => navigate(-1)} />
+                <input type="submit" className="btn btn-primary w-full sm:w-fit" value="Add Feedback" />
+            </div>
         </footer>
     </form>
 } 

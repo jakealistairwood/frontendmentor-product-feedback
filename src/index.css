@@ -31,6 +31,22 @@ body {
   background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%) 
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: hsla(0, 0%, 0%, 0.5);
+  z-index: 10;
+  border-radius: 0;
+}
+
+.overlay--active {
+  display: block;
+}
+
+.overlay--hidden {
+  display: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @apply text-mid-navy;
   @apply font-semibold;
@@ -235,4 +251,19 @@ textarea {
 
 .dropdown-icon--active {
   transform: rotate(180deg);
+}
+
+@media screen and (max-width: 640px) {
+  .navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 100px;
+    border-radius: 0;
+    z-index: 20;
+  }
+
+  .roadmap-page .navbar {
+    top: 0;
+  }
 }

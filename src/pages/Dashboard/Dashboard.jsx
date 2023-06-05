@@ -13,7 +13,15 @@ import { ReactComponent as SuggestionsIcon } from "../../assets/images/suggestio
 const Dashboard = () => {
 
     const { value } = useContext(FeedbackContext);
-    let { suggestions, categories, roadmapData, filterCategories, originalSuggestions } = value;
+    let { 
+        suggestions, 
+        categories, 
+        mobileMenuOpen,
+        setMobileMenuOpen,
+        roadmapData, 
+        filterCategories, 
+        originalSuggestions 
+    } = value;
     
     return <section className="dashboard flex flex-col lg:flex-row gap-8">
         <Sidebar 
@@ -21,13 +29,16 @@ const Dashboard = () => {
             suggestionCategories={categories} 
             filterCategories={filterCategories} 
             statuses={roadmapData} 
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
         />
-        <main className="grow flex flex-col gap-5 pt-32 sm:pt-0">
+        <main className="grow flex flex-col gap-5 pt-52 pb-12 sm:pt-0">
             <Navbar noOfSuggestions={suggestions.length} titleOptions={{ title: `${suggestions.length} Suggestions`, icon: <SuggestionsIcon /> }} />
             {suggestions.length ? suggestions.map(suggestion => {
                 return <SuggestionCard key={uuid()} suggestion={suggestion} />
             }) : <NoSuggestions />}
         </main>
+        <div className={`overlay ${mobileMenuOpen ? "overlay--active" : "overlay--hidden"}`}></div>
     </section>
 }
 

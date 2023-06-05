@@ -29,9 +29,9 @@ const RoadmapBoard = () => {
         setRoadmaps(renderSuggestions());
     }, []);
 
-    return <main className="max-w-[1110px] mx-auto pt-16 pb-44">
+    return <main className="roadmap-page max-w-[1110px] w-10/12 mx-auto pt-16 pb-44">
         <Navbar hasBreadcrumb={true} titleOptions={{ title: "Roadmap", icon: "" }} />
-        <section className="roadmap-board grid grid-cols-3 mt-12 gap-8">
+        <section className="roadmap-board grid grid-cols-1 sm:grid-cols-3 mt-12 gap-8">
             {roadmaps.map(status => {
                 return <div className="board" key={uuid()}>
                     <header className="mb-8">

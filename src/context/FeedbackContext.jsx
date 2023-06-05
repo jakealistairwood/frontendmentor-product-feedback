@@ -7,6 +7,7 @@ const FeedbackContext = createContext();
 export const FeedbackContextProvider = ({ children }) => {
 
     const [ suggestions, setSuggestions ] = useState([]);
+    const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
 
     let originalSuggestions = appData.productRequests;
     let filterCategories = getCategories(appData.productRequests);
@@ -39,6 +40,8 @@ export const FeedbackContextProvider = ({ children }) => {
     const value = {
         suggestions,
         originalSuggestions,
+        mobileMenuOpen,
+        setMobileMenuOpen,
         setSuggestions,
         filterCategories,
         categories,

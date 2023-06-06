@@ -34,6 +34,7 @@ export const FeedbackContextProvider = ({ children }) => {
     })
 
     useEffect(() => {
+        console.log("useEffect ran")
         setSuggestions([...appData.productRequests]);
     }, []);
 

@@ -200,6 +200,10 @@ textarea {
   @apply bg-light-blue;
 }
 
+.default-link:hover {
+  text-decoration: underline;
+}
+
 .form-icon {
   @apply rounded-full;
   top: 0;

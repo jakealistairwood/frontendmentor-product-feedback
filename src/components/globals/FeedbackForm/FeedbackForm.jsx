@@ -3,6 +3,7 @@ import { ReactComponent as PlusIcon } from "../../../assets/images/shared/icon-p
 import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 import { ReactComponent as ArrowDownIcon } from "../../../assets/images/shared/icon-arrow-down.svg";
+import uuid from "react-uuid"
 
 const FeedbackForm = ({ 
         suggestions, 
@@ -21,7 +22,6 @@ const FeedbackForm = ({
 }) => {
     let navigate = useNavigate();
     
-    console.log(statuses);
     // const [ defaultCategory, setDefaultCategory ] = useState("feature");
     const [ categoryDropdownOpen, setCategoryDropdownOpen ] = useState(false);
     const [ statusDropdownOpen, setStatusDropdownOpen ] = useState(false);
@@ -29,7 +29,6 @@ const FeedbackForm = ({
     // const submitNewFeedback = (e) => {
     //     e.preventDefault();
     //     suggestions.push(feedback)
-    //     console.log(suggestions)
     //     setFeedback({
     //         id: suggestions.length + 1,
     //         title: "",
@@ -78,7 +77,7 @@ const FeedbackForm = ({
                     </button>
                     <ul className={`select-dropdown absolute ${categoryDropdownOpen ? "flex flex-col bg-white rounded-xl w-full" : "hidden"}`}>
                         {categories.map(category => {
-                            return <li className="px-6 py-3.5">
+                            return <li key={uuid()} className="px-6 py-3.5">
                                 <button className="w-full text-left" onClick={() => {
                                     setDefaultCategory(category)
                                     setFeedback({
@@ -106,7 +105,7 @@ const FeedbackForm = ({
                     </button>
                     <ul className={`select-dropdown absolute ${statusDropdownOpen ? "flex flex-col bg-white rounded-xl w-full" : "hidden"}`}>
                         {statuses.map(status => {
-                            return <li className="px-6 py-3.5">
+                            return <li key={uuid()} className="px-6 py-3.5">
                                 <button className="w-full text-left" onClick={() => {
                                     setDefaultStatus(status)
                                     setFeedback({

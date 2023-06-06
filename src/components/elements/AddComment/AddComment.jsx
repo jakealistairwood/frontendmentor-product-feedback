@@ -28,9 +28,7 @@ const AddComment = ({ currentSuggestion, setCurrentSuggestion, comment, setComme
     }
     
     useEffect(() => {
-        console.log("use effect ran");
         setCharsRemaining(maxCharLength)
-        // console.log(maxCharLength, commentInput.current.value.length);
     }, []);
 
     // const postComment = () => {

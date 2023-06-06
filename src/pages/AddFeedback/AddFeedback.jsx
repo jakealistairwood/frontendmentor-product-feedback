@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react"
+import { useNavigate } from "react-router";
 import BreadcrumbNav from "../../components/globals/BreadcrumbNav/BreadcrumbNav"
 import FeedbackForm from "../../components/globals/FeedbackForm/FeedbackForm"
 import FeedbackContext from "../../context/FeedbackContext";
@@ -6,6 +7,8 @@ import FeedbackContext from "../../context/FeedbackContext";
 const AddFeedback = () => {
     const { value } = useContext(FeedbackContext);
     let { suggestions, setSuggestions, categories } = value;
+    
+    let navigate = useNavigate();
 
     const [ newFeedback, setNewFeedback ] = useState({
         id: suggestions.length + 1,
@@ -21,16 +24,9 @@ const AddFeedback = () => {
 
     const submitNewFeedback = (e) => {
         e.preventDefault();
-        suggestions.push(newFeedback)
-        setNewFeedback({
-            id: suggestions.length + 1,
-            title: "",
-            category: "",
-            upvotes: 0,
-            status: "suggestion",
-            description: "",
-            comments: []
-        })
+        console.log(newFeedback);
+        suggestions.push(newFeedback);
+        navigate("/suggestions");
     }
 
     useEffect(() => {

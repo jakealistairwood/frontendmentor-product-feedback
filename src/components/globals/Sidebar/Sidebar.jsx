@@ -6,8 +6,6 @@ const Sidebar = ({ suggestionCategories, filterCategories, statuses, originalSug
 
     const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
 
-    console.log(windowWidth);
-
     useEffect(() => {
         window.addEventListener("resize", () => {
             setWindowWidth(window.innerWidth)
@@ -17,7 +15,6 @@ const Sidebar = ({ suggestionCategories, filterCategories, statuses, originalSug
         })
     }, [windowWidth]);
 
-    console.log(filterCategories)
     return <aside className="sidebar fixed sm:static left-0 sm:left-[unset] max-w-full lg:max-w-[255px] lg:sticky lg:top-0 w-full flex flex-col sm:grid sm:grid-cols-3 lg:flex flex-row lg:flex-col gap-0 sm:gap-6 z-50">
         <h1 className="feedback-board h-full lg:h-[137px] sm:rounded-xl p-6 flex flex-row sm:flex-col justify-between sm:justify-end text-white">
             <div className="flex flex-col w-full">

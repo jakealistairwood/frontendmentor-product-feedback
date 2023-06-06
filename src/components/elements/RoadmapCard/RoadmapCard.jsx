@@ -11,6 +11,7 @@ const RoadmapCard = ({ suggestion, status }) => {
         </div>
         <h4 className="mb-2 text-lg">{suggestion.title}</h4>
         <p>{suggestion.description}</p>
+        <div className="category-tag w-fit px-4 py-1.5 mt-4">{suggestion.category}</div>
         <footer className="flex justify-between items-center mt-4">
             <Button classNames={"btn-upvote"} label={suggestion.upvotes} icon={<ArrowUpIcon />} />
             <div className="suggestion-card__comments-indicator flex items-center gap-2">

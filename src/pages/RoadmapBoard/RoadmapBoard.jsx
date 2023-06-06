@@ -2,10 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import FeedbackContext from "../../context/FeedbackContext"
 import Navbar from "../../components/globals/Navbar/Navbar";
 import uuid from "react-uuid"
-import Button from "../../components/globals/Button/Button";
 import RoadmapCard from "../../components/elements/RoadmapCard/RoadmapCard";
-import { ReactComponent as ArrowUpIcon } from "../../assets/images/shared/icon-arrow-up.svg"
-import { ReactComponent as CommentsIcon } from "../../assets/images/shared/icon-comments.svg"
 
 const RoadmapBoard = () => {
     let { value } = useContext(FeedbackContext);
@@ -39,7 +36,7 @@ const RoadmapBoard = () => {
                     </header>
                     <ul className="roadmap-suggestions flex flex-col gap-y-6">
                         {status.relatedSuggestions.map(suggestion => {
-                            return <RoadmapCard status={status} suggestion={suggestion} />
+                            return <RoadmapCard key={uuid()} status={status} suggestion={suggestion} />
                         })}
                     </ul>
                 </div>

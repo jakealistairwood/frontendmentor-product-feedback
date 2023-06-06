@@ -1,3 +1,5 @@
+import uuid from "react-uuid"
+
 const CommentsBlock = ({ comments }) => {
     if(comments) {
         return <div className="comments bg-white rounded-xl px-8 py-6 mt-6">
@@ -5,7 +7,7 @@ const CommentsBlock = ({ comments }) => {
             <ul className="flex flex-col gap-y-8">
                 {comments.map(comment => {
                     const { user, id, content } = comment;
-                    return <li className="comment flex gap-8 pb-8 border-b-2 border-solid border-[#F7F8FD]">
+                    return <li key={uuid()} className="comment flex gap-8 pb-8 border-b-2 border-solid border-[#F7F8FD]">
                         <div className="aspect-square w-10 h-10 rounded-full">
                             <img className="aspect-square rounded-full w-fill h-fill" src={user.image} alt="user avatar" />
                         </div>
@@ -15,7 +17,7 @@ const CommentsBlock = ({ comments }) => {
                                     <h4 className="font-semibold">{user.name}</h4>
                                     <p className="text-sm">@{user.username}</p>
                                 </div>
-                                <button className="text-secondary-purple text-sm font-semibold">Reply</button>
+                                <button className="text-secondary-purple text-sm font-semibold default-link">Reply</button>
                             </header>
                             <p>{content}</p>
                         </div>

@@ -34,8 +34,9 @@ const EditFeedback = () => {
 
     const submitUpdatedFeedback = (e) => {
         e.preventDefault();
-        console.log(currentFeedback)
-        setSuggestions(suggestions.map(suggestion => (suggestion.id == currentFeedback.id ? { ...suggestion, currentFeedback } : suggestion )));
+        let index = suggestions.findIndex(element => element.id == currentFeedback.id);
+        suggestions[index] = currentFeedback;
+        navigate("/suggestions")
     }
     
     const deleteFeedback = (e, currentSuggestion) => {

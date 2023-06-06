@@ -23,6 +23,8 @@ const EditFeedback = () => {
         description: suggestion.description,
         comments: suggestion.comments
     });
+
+    console.log(currentFeedback);
     
     const [ defaultCategory, setDefaultCategory ] = useState(currentFeedback.category);
     const [ defaultStatus, setDefaultStatus ] = useState(currentFeedback.status);
@@ -33,28 +35,32 @@ const EditFeedback = () => {
     let navigate = useNavigate();
 
     const submitUpdatedFeedback = (e) => {
+        e.stopPropagation();
         e.preventDefault();
         let index = suggestions.findIndex(element => element.id == currentFeedback.id);
+        console.log(index);
         suggestions[index] = currentFeedback;
-        navigate("/suggestions")
+        // navigate("/suggestions")
     }
     
     const deleteFeedback = (e, currentSuggestion) => {
-        console.log(currentSuggestion);
+        e.preventDefault();
+        e.stopPropagation();
         setSuggestions(suggestions.filter(suggestion => suggestion.id !== currentSuggestion.id));
-        navigate("/suggestions")
+        // navigate("/suggestions")
     }
 
-    useEffect(() => {
-        setCurrentFeedback({
-            ...currentFeedback,
-            category: defaultCategory,
-            status: defaultStatus
-        })
-    }, [currentFeedback.category, currentFeedback.status]);
+    // useEffect(() => {
+    //     console.log("useEffect ran")
+    //     setCurrentFeedback({
+    //         ...currentFeedback,
+    //         category: defaultCategory,
+    //         status: defaultStatus
+    //     })
+    // }, [currentFeedback.category, currentFeedback.status]);
 
     return <main className="max-w-[540px] w-10/12 mx-auto py-20">
-        <BreadcrumbNav hasAdditionalButton={false} />
+        <BreadcrumbNav classNames={"btn-go-back"} hasAdditionalButton={false} />
         <FeedbackForm 
             suggestions={suggestions} 
             feedback={currentFeedback} 

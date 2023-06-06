@@ -112,8 +112,7 @@ textarea {
   @apply text-white;
 }
 
-.btn-secondary:hover
-.btn-secondary:focus {
+.btn-secondary:hover {
   @apply bg-lilac-blue;
 }
 
@@ -135,6 +134,15 @@ textarea {
 .btn-danger:hover,
 .btn-danger:focus {
   @apply bg-pale-red;
+}
+
+.btn-go-back:hover span {
+  @apply text-paler-navy;
+  @apply underline;
+}
+
+.roadmap-page .btn-go-back:hover span {
+  @apply !text-white;
 }
 
 .btn-filter,
@@ -168,6 +176,11 @@ textarea {
 .btn-filter {
   @apply py-1.5;
   @apply px-4;
+}
+
+.suggestion-card:hover a h3,
+.roadmap-card:hover a h4 {
+  @apply text-secondary-purple;
 }
 
 .category-tag {

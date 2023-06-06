@@ -35,7 +35,7 @@ const Dashboard = () => {
         <main className="grow flex flex-col gap-5 pt-52 pb-12 sm:pt-0">
             <Navbar noOfSuggestions={suggestions.length} titleOptions={{ title: `${suggestions.length} Suggestions`, icon: <SuggestionsIcon /> }} />
             {suggestions.length ? suggestions.map(suggestion => {
-                return <SuggestionCard key={uuid()} suggestion={suggestion} />
+                return <SuggestionCard key={uuid()} suggestion={suggestion} isLink={true} />
             }) : <NoSuggestions />}
         </main>
         <div className={`overlay ${mobileMenuOpen ? "overlay--active" : "overlay--hidden"}`}></div>

@@ -40,7 +40,9 @@ const FeedbackForm = ({
     //     })
     // }
 
-    return <form className="pt-14 pb-10 px-10 bg-white rounded-xl relative mt-16" onSubmit={submitFeedback}>
+    return <form className="pt-14 pb-10 px-10 bg-white rounded-xl relative mt-16" onSubmit={() => {
+        submitFeedback();
+    }}>
         <div className="form-icon absolute left-10">
             <PlusIcon />
         </div>
@@ -69,7 +71,8 @@ const FeedbackForm = ({
                     <p>Choose a category, for your feedback</p>
                 </label>
                 <div className="dropdown-menu relative" id="feedbackCategory">
-                    <button className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={() => {
+                    <button className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={(e) => {
+                        e.stopPropagation()
                         setCategoryDropdownOpen(!categoryDropdownOpen)
                     }}>
                         <span>{defaultCategory}</span>

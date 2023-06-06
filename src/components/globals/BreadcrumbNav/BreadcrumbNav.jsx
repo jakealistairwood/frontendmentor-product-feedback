@@ -6,7 +6,7 @@ const BreadcrumbNav = ({ hasAdditionalButton, href, isLink }) => {
     let navigate = useNavigate();
 
     return <nav className="breadcrumb flex justify-between items-center mb-6">
-        <Button label={"Go Back"} icon={<ArrowLeft />} triggerFunctionality={() => navigate(-1)} />
+        <Button classNames={"btn-go-back"} label={"Go Back"} icon={<ArrowLeft />} triggerFunctionality={() => navigate(-1)} />
         {hasAdditionalButton && <Button label={"Edit Feedback"} isLink={isLink} classNames={"btn-secondary"} triggerFunctionality={null} href={href}  />}
     </nav>
 }

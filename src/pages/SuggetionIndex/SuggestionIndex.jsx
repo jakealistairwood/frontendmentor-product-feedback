@@ -13,9 +13,9 @@ const SuggestionIndex = () => {
         content: "",
         id: "",
         user: {
-            image: "/images/image-suzanne.png",
-            name: "Suzanne Smith",
-            username: "suzie_smith1234"
+            image: "/images/image-javier.jpg",
+            name: "Joe Bloggs",
+            username: "joebloggs123"
         }
     })
 
@@ -55,7 +55,7 @@ const SuggestionIndex = () => {
     return <main className="max-w-[730px] w-10/12 mx-auto py-20">
         <section>
             <BreadcrumbNav classNames={"btn-go-back"} hasAdditionalButton={true} href={editFeedbackLink} isLink={true} />
-            <SuggestionCard suggestion={suggestion} setSuggestions={setSuggestions} />
+            <SuggestionCard suggestion={suggestion} setSuggestions={setSuggestions} isLink={false} />
             <CommentsBlock comments={suggestion.comments} />
             <AddComment 
                 comment={comment}

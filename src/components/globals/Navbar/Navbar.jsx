@@ -8,7 +8,7 @@ const Navbar = ({ noOfSuggestions, hasBreadcrumb, titleOptions }) => {
 
     return <nav className="navbar py-3.5 px-4 bg-deep-navy rounded-xl text-white flex justify-between items-center">
         <div className="flex flex-col">
-            {hasBreadcrumb && <Button label={"Go Back"} icon={<ArrowLeft />} triggerFunctionality={() => navigate(-1)} />}
+            {hasBreadcrumb && <Button classNames={"btn-go-back"} label={"Go Back"} icon={<ArrowLeft />} triggerFunctionality={() => navigate(-1)} />}
             <div className="flex items-center gap-2">
                 {titleOptions.icon && <>{titleOptions.icon}</>}
                 <p className="text-white">{titleOptions.title}</p>

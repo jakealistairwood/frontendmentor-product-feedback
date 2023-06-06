@@ -1,6 +1,7 @@
 import Button from "../../globals/Button/Button.jsx";
 import { ReactComponent as ArrowUpIcon } from "../../../assets/images/shared/icon-arrow-up.svg"
 import { ReactComponent as CommentsIcon } from "../../../assets/images/shared/icon-comments.svg"
+import { Link } from "react-router-dom";
 
 const RoadmapCard = ({ suggestion, status }) => {
     return <li className={`roadmap-card roadmap-card--${suggestion.status} rounded-xl`}>
@@ -9,9 +10,11 @@ const RoadmapCard = ({ suggestion, status }) => {
             <div className={`w-[8px] h-[8px] rounded-full indicator-${status.label}`}></div>
             <p className="text-paler-navy">{status.label}</p>
         </div>
-        <h4 className="mb-2 text-lg">{suggestion.title}</h4>
-        <p>{suggestion.description}</p>
-        <div className="category-tag w-fit px-4 py-1.5 mt-4">{suggestion.category}</div>
+        <Link to={`/suggestions/${suggestion.id}`}>
+            <h4 className="mb-2 text-lg">{suggestion.title}</h4>
+            <p>{suggestion.description}</p>
+            <div className="category-tag w-fit px-4 py-1.5 mt-4">{suggestion.category}</div>
+        </Link>
         <footer className="flex justify-between items-center mt-4">
             <Button classNames={"btn-upvote"} label={suggestion.upvotes} icon={<ArrowUpIcon />} />
             <div className="suggestion-card__comments-indicator flex items-center gap-2">

@@ -35,7 +35,7 @@ const SuggestionIndex = () => {
             content: "",
             id: "",
             user: {
-                image: "/images/image-suzanne.png",
+                image: "/images/image-suzanne.jpg",
                 name: "Suzanne Smith",
                 username: "suzie_smith1234"
             }

@@ -7,10 +7,11 @@ const FeedbackFilters = ({ filters, originalFilters, originalSuggestions }) => {
     let { value } = useContext(FeedbackContext);
     let { suggestions, setSuggestions } = value;
 
-    const [ currentFilter, setCurrentFilter ] = useState("");
+    const [ currentFilter, setCurrentFilter ] = useState("all");
 
     const handleFilter = (label) => {
         setCurrentFilter(label)
+        console.log(label, currentFilter);
         setSuggestions(originalSuggestions)
         if(label == "all") {
             console.log(suggestions);
@@ -21,14 +22,14 @@ const FeedbackFilters = ({ filters, originalFilters, originalSuggestions }) => {
             console.log(filterdSuggestions)
             // setSuggestions(...suggestions.filter(suggestion => suggestion.category == label))
             // setSuggestions([])
-            setSuggestions([...filterdSuggestions])
+            setSuggestions(originalSuggestions.filter(suggestion => suggestion.category == label))
         }
     }
 
     useEffect(() => {
         console.log("useEffect ran")
-        setCurrentFilter("all")
-    }, [handleFilter]);
+        setCurrentFilter(currentFilter)
+    }, [currentFilter]);
 
     return <ul className={`feedback-filters rounded-xl p-6 bg-white flex flex-wrap gap-y-3.5 gap-x-2`}>
         <li className="">

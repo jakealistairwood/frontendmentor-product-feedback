@@ -15,9 +15,9 @@ const RoadmapCard = ({ suggestion, status }) => {
             <Button classNames={"btn-upvote"} label={suggestion.upvotes} icon={<ArrowUpIcon />} />
             <div className="suggestion-card__comments-indicator flex items-center gap-2">
                 <CommentsIcon />
-                {/* {suggestion.comments ? (
-                    <span>{suggestions.comments.length}</span>
-                ): <span>0</span>} */}
+                {suggestion.comments ? (
+                    <span>{suggestion.comments.length}</span>
+                ): <span>0</span>}
             </div>
         </footer>
     </div>

@@ -3,6 +3,7 @@ import { useParams } from "react-router"
 import FeedbackContext from "../../context/FeedbackContext"
 import BreadcrumbNav from "../../components/globals/BreadcrumbNav/BreadcrumbNav"
 import FeedbackForm from "../../components/globals/FeedbackForm/FeedbackForm"
+import { useNavigate } from "react-router"
 
 const EditFeedback = () => {
     let { value } = useContext(FeedbackContext);
@@ -10,8 +11,9 @@ const EditFeedback = () => {
 
     let { id } = useParams();
 
+    
     let suggestion = suggestions.filter(item => item.id == id)[0];
-
+    
     const [ currentFeedback, setCurrentFeedback ] = useState({
         id: suggestion.id,
         title: suggestion.title,
@@ -21,13 +23,22 @@ const EditFeedback = () => {
         description: suggestion.description,
         comments: suggestion.comments
     });
-
+    
     const [ defaultCategory, setDefaultCategory ] = useState(currentFeedback.category);
+    const [ loadingWait, setLoadingWait ] = useState(false);
+
+    let navigate = useNavigate();
 
     const submitUpdatedFeedback = (e) => {
         e.preventDefault();
         console.log(currentFeedback)
         setSuggestions(suggestions.map(suggestion => (suggestion.id == currentFeedback.id ? { ...suggestion, currentFeedback } : suggestion )));
+    }
+    
+    const deleteFeedback = (e, currentSuggestion) => {
+        console.log(currentSuggestion);
+        setSuggestions(suggestions.filter(suggestion => suggestion.id !== currentSuggestion.id));
+        navigate("/suggestions")
     }
 
     useEffect(() => {
@@ -49,6 +60,7 @@ const EditFeedback = () => {
             defaultCategory={defaultCategory}
             setDefaultCategory={setDefaultCategory}
             submitFeedback={submitUpdatedFeedback}
+            deleteFeedback={deleteFeedback}
         />
     </main>
 }

@@ -57,7 +57,7 @@ const SuggestionIndex = () => {
     return <main className="max-w-[730px] w-10/12 mx-auto py-20">
         <section>
             <BreadcrumbNav hasAdditionalButton={true} href={editFeedbackLink} isLink={true} />
-            <SuggestionCard suggestion={suggestion} />
+            <SuggestionCard suggestion={suggestion} setSuggestions={setSuggestions} />
             <CommentsBlock comments={suggestion.comments} />
             <AddComment 
                 comment={comment}

@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 import { ReactComponent as ArrowDownIcon } from "../../../assets/images/shared/icon-arrow-down.svg";
 
-const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, toEdit, defaultCategory, setDefaultCategory, submitFeedback }) => {
+const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, toEdit, defaultCategory, setDefaultCategory, submitFeedback, deleteFeedback }) => {
     let navigate = useNavigate();
     
     // const [ defaultCategory, setDefaultCategory ] = useState("feature");
@@ -93,7 +93,7 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, t
             </div>
         </div>
         <footer className={`flex flex-col sm:flex-row ${toEdit ? "justify-between" : "justify-end"} items-center mt-8 gap-4`}>
-            {toEdit && <Button classNames={"btn-danger w-full sm:w-fit"} label={"Delete"} />}
+            {toEdit && <Button classNames={"btn-danger w-full sm:w-fit"} label={"Delete"} triggerFunctionality={(e) => deleteFeedback(e, feedback)} />}
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-fit">
                 <Button classNames={"btn-tertiary w-full sm:w-fit"} label={"Cancel"} triggerFunctionality={() => navigate(-1)} />
                 <input type="submit" className="btn btn-primary w-full sm:w-fit" value="Add Feedback" />

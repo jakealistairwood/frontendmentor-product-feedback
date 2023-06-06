@@ -4,11 +4,27 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 import { ReactComponent as ArrowDownIcon } from "../../../assets/images/shared/icon-arrow-down.svg";
 
-const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, toEdit, defaultCategory, setDefaultCategory, submitFeedback, deleteFeedback }) => {
+const FeedbackForm = ({ 
+        suggestions, 
+        title, 
+        feedback, 
+        setFeedback, 
+        categories, 
+        toEdit, 
+        defaultCategory, 
+        setDefaultCategory, 
+        defaultStatus,
+        setDefaultStatus,
+        submitFeedback, 
+        deleteFeedback,
+        statuses
+}) => {
     let navigate = useNavigate();
     
+    console.log(statuses);
     // const [ defaultCategory, setDefaultCategory ] = useState("feature");
     const [ categoryDropdownOpen, setCategoryDropdownOpen ] = useState(false);
+    const [ statusDropdownOpen, setStatusDropdownOpen ] = useState(false);
 
     // const submitNewFeedback = (e) => {
     //     e.preventDefault();
@@ -75,6 +91,34 @@ const FeedbackForm = ({ suggestions, title, feedback, setFeedback, categories, t
                     </ul>
                 </div>
             </div>
+            {toEdit && <div className="form-control">
+                <label htmlFor="feedbackStatus">
+                    <h2>Update Status</h2>
+                    <p>Change feedback state</p>
+                </label>
+                <div className="dropdown-menu relative" id="feedbackStatus">
+                    <button className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={() => {
+                        setStatusDropdownOpen(!statusDropdownOpen)
+                    }}>
+                        <span>{defaultStatus}</span>
+                        <ArrowDownIcon className={`dropdown-icon ${statusDropdownOpen && "dropdown-icon--active"}`} />
+                    </button>
+                    <ul className={`select-dropdown absolute ${statusDropdownOpen ? "flex flex-col bg-white rounded-xl w-full" : "hidden"}`}>
+                        {statuses.map(status => {
+                            return <li className="px-6 py-3.5">
+                                <button className="w-full text-left" onClick={() => {
+                                    setDefaultStatus(status)
+                                    setFeedback({
+                                        ...feedback,
+                                        status: status
+                                    })
+                                    setStatusDropdownOpen(false)
+                                }}>{status}</button>
+                            </li>
+                        })}
+                    </ul>
+                </div>
+            </div>}
             <div className="form-control">
                 <label htmlFor="feedbackDetail">
                     <h2>Feedback Detail</h2>

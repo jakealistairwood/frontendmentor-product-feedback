@@ -237,6 +237,7 @@ textarea {
 .select-dropdown {
   box-shadow: 0px 10px 40px -7px #373F6859;
   @apply top-16;
+  z-index: 30;
 }
 
 .select-dropdown li:not(:last-child) {

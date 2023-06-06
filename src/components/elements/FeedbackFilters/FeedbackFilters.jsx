@@ -11,23 +11,15 @@ const FeedbackFilters = ({ filters, originalFilters, originalSuggestions }) => {
 
     const handleFilter = (label) => {
         setCurrentFilter(label)
-        console.log(label, currentFilter);
         setSuggestions(originalSuggestions)
         if(label == "all") {
-            console.log(suggestions);
             return
         } else {
-            console.log("button clicked");
-            let filterdSuggestions = suggestions.filter(suggestion => suggestion.category == label)
-            console.log(filterdSuggestions)
-            // setSuggestions(...suggestions.filter(suggestion => suggestion.category == label))
-            // setSuggestions([])
             setSuggestions(originalSuggestions.filter(suggestion => suggestion.category == label))
         }
     }
 
     useEffect(() => {
-        console.log("useEffect ran")
         setCurrentFilter(currentFilter)
     }, [currentFilter]);
 

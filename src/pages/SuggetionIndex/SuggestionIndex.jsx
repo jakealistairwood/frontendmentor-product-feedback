@@ -20,7 +20,7 @@ const SuggestionIndex = () => {
     })
 
     const { value } = useContext(FeedbackContext);
-    let { suggestions, categories, roadmapData, setSuggestions } = value;
+    let { suggestions, categories, roadmapData, setSuggestions, windowWidth } = value;
 
     let suggestion = suggestions.filter(item => item.id == id)[0];
 
@@ -55,7 +55,7 @@ const SuggestionIndex = () => {
     return <main className="max-w-[730px] w-10/12 mx-auto py-20">
         <section>
             <BreadcrumbNav classNames={"btn-go-back"} hasAdditionalButton={true} href={editFeedbackLink} isLink={true} />
-            <SuggestionCard suggestion={suggestion} setSuggestions={setSuggestions} isLink={false} />
+            <SuggestionCard windowWidth={windowWidth} suggestion={suggestion} setSuggestions={setSuggestions} isLink={false} />
             <CommentsBlock comments={suggestion.comments} />
             <AddComment 
                 comment={comment}

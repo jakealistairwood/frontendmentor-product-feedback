@@ -20,7 +20,8 @@ const Dashboard = () => {
         setMobileMenuOpen,
         roadmapData, 
         filterCategories, 
-        originalSuggestions 
+        originalSuggestions,
+        windowWidth,
     } = value;
     
     return <section className="dashboard flex flex-col lg:flex-row gap-8">
@@ -31,11 +32,12 @@ const Dashboard = () => {
             statuses={roadmapData} 
             mobileMenuOpen={mobileMenuOpen}
             setMobileMenuOpen={setMobileMenuOpen}
+            windowWidth={windowWidth}
         />
         <main className="grow flex flex-col gap-5 pt-52 pb-12 sm:pt-0">
             <Navbar noOfSuggestions={suggestions.length} titleOptions={{ title: `${suggestions.length} Suggestions`, icon: <SuggestionsIcon /> }} />
             {suggestions.length ? suggestions.map(suggestion => {
-                return <SuggestionCard key={uuid()} suggestion={suggestion} isLink={true} />
+                return <SuggestionCard windowWidth={windowWidth} key={uuid()} suggestion={suggestion} isLink={true} />
             }) : <NoSuggestions />}
         </main>
         <div className={`overlay ${mobileMenuOpen ? "overlay--active" : "overlay--hidden"}`}></div>

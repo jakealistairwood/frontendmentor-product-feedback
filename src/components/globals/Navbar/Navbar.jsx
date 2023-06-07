@@ -6,12 +6,12 @@ import Button from "../Button/Button";
 const Navbar = ({ noOfSuggestions, hasBreadcrumb, titleOptions }) => {
     let navigate = useNavigate();
 
-    return <nav className="navbar py-3.5 px-4 bg-deep-navy rounded-xl text-white flex justify-between items-center">
+    return <nav className={`navbar ${hasBreadcrumb ? "px-8 py-6" : "py-3.5 px-4"} bg-deep-navy rounded-xl text-white flex justify-between items-center`}>
         <div className="flex flex-col">
             {hasBreadcrumb && <Button classNames={"btn-go-back"} label={"Go Back"} icon={<ArrowLeft />} triggerFunctionality={() => navigate(-1)} />}
             <div className="flex items-center gap-2">
                 {titleOptions.icon && <>{titleOptions.icon}</>}
-                <p className="text-white">{titleOptions.title}</p>
+                <p className={`text-white ${hasBreadcrumb ? "text-2xl" : "text-lg"} font-semibold`}>{titleOptions.title}</p>
             </div>
         </div>
         <Button label={"Add Feedback"} href={"/suggestions/add-feedback"} classNames={"btn-primary"} isLink={true} />

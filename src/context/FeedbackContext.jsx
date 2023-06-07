@@ -8,6 +8,7 @@ export const FeedbackContextProvider = ({ children }) => {
 
     const [ suggestions, setSuggestions ] = useState([]);
     const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
+    const [ windowWidth, setWindowWidth ] = useState(window.innerWidth);
 
     let originalSuggestions = appData.productRequests;
     let filterCategories = getCategories(appData.productRequests);
@@ -38,6 +39,18 @@ export const FeedbackContextProvider = ({ children }) => {
         setSuggestions([...appData.productRequests]);
     }, []);
 
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setWindowWidth(window.innerWidth);
+        });
+
+        return () => {
+            window.removeEventListener("resize", () => {
+                setWindowWidth(window.innerWidth);
+            })
+        }
+    }, [windowWidth]);
+
     const value = {
         suggestions,
         originalSuggestions,
@@ -46,7 +59,8 @@ export const FeedbackContextProvider = ({ children }) => {
         setSuggestions,
         filterCategories,
         categories,
-        roadmapData
+        roadmapData,
+        windowWidth
     };
 
     return <FeedbackContext.Provider value={{value}}>

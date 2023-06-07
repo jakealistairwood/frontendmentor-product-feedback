@@ -40,9 +40,7 @@ const FeedbackForm = ({
     //     })
     // }
 
-    return <form className="pt-14 pb-10 px-10 bg-white rounded-xl relative mt-16" onSubmit={() => {
-        submitFeedback();
-    }}>
+    return <form className="pt-14 pb-10 px-10 bg-white rounded-xl relative mt-16" onSubmit={submitFeedback}>
         <div className="form-icon absolute left-10">
             <PlusIcon />
         </div>

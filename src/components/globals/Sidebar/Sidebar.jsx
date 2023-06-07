@@ -2,18 +2,7 @@ import { useState, useEffect } from "react"
 import FeedbackFilters from "../../elements/FeedbackFilters/FeedbackFilters"
 import Roadmap from "../../elements/Roadmap/Roadmap"
 
-const Sidebar = ({ suggestionCategories, filterCategories, statuses, originalSuggestions, mobileMenuOpen, setMobileMenuOpen }) => {
-
-    const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
-
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            setWindowWidth(window.innerWidth)
-        })
-        return () => window.removeEventListener("resize", () => {
-            setWindowWidth(window.innerWidth)
-        })
-    }, [windowWidth]);
+const Sidebar = ({ suggestionCategories, filterCategories, statuses, originalSuggestions, mobileMenuOpen, setMobileMenuOpen, windowWidth }) => {
 
     return <aside className="sidebar fixed sm:static left-0 sm:left-[unset] max-w-full lg:max-w-[255px] lg:sticky lg:top-0 w-full flex flex-col sm:grid sm:grid-cols-3 lg:flex flex-row lg:flex-col gap-0 sm:gap-6 z-50">
         <h1 className="feedback-board h-full lg:h-[137px] sm:rounded-xl p-6 flex flex-row sm:flex-col justify-between sm:justify-end text-white">

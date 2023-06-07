@@ -284,4 +284,13 @@ textarea {
   .roadmap-page .navbar {
     top: 0;
   }
+
+  .suggestion-card .btn-upvote {
+    @apply px-4;
+    @apply py-2;
+  }
+
+  .suggestion-card .btn-upvote > div {
+    @apply flex-row;
+  }
 }

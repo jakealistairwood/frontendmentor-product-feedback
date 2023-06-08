@@ -1,7 +1,8 @@
 import uuid from "react-uuid"
 
 const CommentsBlock = ({ comments }) => {
-    if(comments) {
+    console.log(comments);
+    if(comments !== undefined) {
         return <div className="comments bg-white rounded-xl px-8 py-6 mt-6">
             <h3 className="pb-6">{comments.length} Comments</h3>
             <ul className="flex flex-col gap-y-8">

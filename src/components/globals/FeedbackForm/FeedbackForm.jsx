@@ -69,8 +69,7 @@ const FeedbackForm = ({
                     <p>Choose a category, for your feedback</p>
                 </label>
                 <div className="dropdown-menu relative" id="feedbackCategory">
-                    <button className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={(e) => {
-                        e.stopPropagation()
+                    <button type="button" className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={(e) => {
                         setCategoryDropdownOpen(!categoryDropdownOpen)
                     }}>
                         <span>{defaultCategory}</span>
@@ -98,7 +97,7 @@ const FeedbackForm = ({
                     <p>Change feedback state</p>
                 </label>
                 <div className="dropdown-menu relative" id="feedbackStatus">
-                    <button className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={() => {
+                    <button type="button" className="select-input min-h-[48px] py-3.5 px-6 mt-4 flex justify-between items-center" onClick={() => {
                         setStatusDropdownOpen(!statusDropdownOpen)
                     }}>
                         <span>{defaultStatus}</span>
@@ -142,7 +141,7 @@ const FeedbackForm = ({
             {toEdit && <Button classNames={"btn-danger w-full sm:w-fit"} label={"Delete"} triggerFunctionality={(e) => deleteFeedback(e, feedback)} />}
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-fit">
                 <Button classNames={"btn-tertiary w-full sm:w-fit"} label={"Cancel"} triggerFunctionality={() => navigate(-1)} />
-                <input type="submit" className="btn btn-primary w-full sm:w-fit" value="Add Feedback" />
+                <input type="submit" className="btn btn-primary w-full sm:w-fit" value={`${toEdit ? "Save Changes" : "Add Feedback"}`} />
             </div>
         </footer>
     </form>

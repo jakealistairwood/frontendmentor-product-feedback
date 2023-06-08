@@ -43,16 +43,15 @@ const EditFeedback = () => {
         e.stopPropagation();
         e.preventDefault();
         let index = suggestions.findIndex(element => element.id == currentFeedback.id);
-        console.log(index);
         suggestions[index] = currentFeedback;
-        // navigate("/suggestions")
+        navigate("/suggestions")
     }
     
     const deleteFeedback = (e, currentSuggestion) => {
         e.preventDefault();
         e.stopPropagation();
         setSuggestions(suggestions.filter(suggestion => suggestion.id !== currentSuggestion.id));
-        // navigate("/suggestions")
+        navigate("/suggestions")
     }
 
     // useEffect(() => {

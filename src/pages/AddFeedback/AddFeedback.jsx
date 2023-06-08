@@ -24,9 +24,9 @@ const AddFeedback = () => {
 
     const submitNewFeedback = (e) => {
         e.preventDefault();
-        console.log(newFeedback);
         suggestions.push(newFeedback);
         navigate("/suggestions");
+        setSuggestions(suggestions);
     }
 
     useEffect(() => {
